@@ -2,7 +2,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { useEffect, useRef, useState } from 'react';
 import { databaseRef, firebaseAuth } from '../firebaseConfig';
-import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 export default function AddUserName() {
@@ -54,11 +53,8 @@ export default function AddUserName() {
               setUid(user.uid);
               checkUserNamePresent(user.uid);
           } else {
-            // setIsUserLogged(false);
-            //   window.location('/');
               console.error("user is not logged in");
               history.push('/');
-            //   <Redirect to="/" />
           }
         });
     }, [])

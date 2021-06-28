@@ -62,11 +62,11 @@
     align-self: flex-end;
 }
 .feedback-display-area{
-    max-width: 800px;
     display: flex;
     flex-direction: column;
     gap: 1em;
-    margin: 5em;
+    align-items: center;
+    margin: 3em;
 }
 .feedback-card-container{
     border: 2px solid rgb(189, 189, 189);
@@ -74,6 +74,8 @@
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
+    width: 80%;
+    max-width: 800px;
 }
 .delete-feedback {
     color: red;
