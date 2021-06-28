@@ -31,7 +31,7 @@ export default function Login() {
                 <TextField inputRef={passwordRef} id="outlined-basic" label="Password" variant="outlined" />
                 <div className="button-groups">
                 <Button onClick={formSubmitHandler} variant="contained" color="primary">Login</Button>
-                <Link to="/"> <Button variant="contained" color="primary">New User? Signup here! </Button> </Link>
+                <Link className="remove-textdeco" to="/"> <Button variant="contained" color="primary">New User? Signup here! </Button> </Link>
                 </div>
                
                 {error.length > 0 && <div style={{color: 'red'}}>{error}</div>}

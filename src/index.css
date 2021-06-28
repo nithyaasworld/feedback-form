@@ -43,3 +43,49 @@
     display: flex;
     justify-content: space-around;
 }
+.feedback-form-container{
+    display: flex;
+    flex-direction: column;
+    gap: 5em;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+}
+.feedback-form-controls{
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    max-width: 400px;
+    gap: 2em;
+}
+.feedback-form-submit-btn {
+    align-self: flex-end;
+}
+.feedback-display-area{
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin: 5em;
+}
+.feedback-card-container{
+    border: 2px solid rgb(189, 189, 189);
+    padding: 1em;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.delete-feedback {
+    color: red;
+    cursor: pointer;
+}
+.user-profile-container > h1 {
+    margin: 2em;
+    text-align: center;
+}
+.share-this-feedback-link{
+    text-align: center;
+}
+.remove-textdeco{
+    text-decoration: none;
+}

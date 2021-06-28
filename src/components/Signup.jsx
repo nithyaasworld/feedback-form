@@ -25,14 +25,14 @@ export default function Signup() {
           });
     };
     return (
-        <div className="signup-container">
-            <form>
+        <div >
+            <form className="signup-container">
             <TextField inputRef={emailRef} id="outlined-basic" label="Email" variant="outlined" />
             <TextField inputRef={passwordRef} id="outlined-basic" label="Password" variant="outlined" />
                 <TextField inputRef={confirmPassRef} id="outlined-basic" label="Confirm Password" variant="outlined" />
                 <div className="button-groups">
-                <Button onClick={formSubmitHandler} variant="contained" color="primary">Submit</Button>
-                <Link to="/login"> <Button variant="contained" color="primary">Login</Button> </Link>
+                <Button onClick={formSubmitHandler} variant="contained" color="primary">Signup</Button>
+                <Link className="remove-textdeco" to="/login"> <Button variant="contained" color="primary">Login</Button> </Link>
                 </div>
                
                 {error.length > 0 && <div style={{color: 'red'}}>{error}</div>}

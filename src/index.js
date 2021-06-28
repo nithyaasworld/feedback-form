@@ -7,11 +7,19 @@ import Main from "./components/Main";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AddUserName from "./components/AddUserName";
 import Login from "./components/Login";
+import UserProfile from "./components/UserProfile";
+import FeedbackForm from "./components/FeedbackForm";
 
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <Switch>
+            <Switch>
+                <Route path='/feedback/:userName'>
+                    <FeedbackForm />
+                </Route>
+                <Route path='/profile/:userName'>
+                    <UserProfile />
+                </Route>
         <Route path="/add-user-name">
           <AddUserName />
         </Route>
