@@ -1,9 +1,9 @@
-import Counter from "./Counter";
+import Signup from "./Signup";
 
 export default function Main() {
     return (
-        <div className="container">
-            <Counter/>
+        <div className="main-container">
+            <Signup/>
         </div>
     )
 }

@@ -1,43 +1,28 @@
-export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
-export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
+export const ADD_NEW_USER = 'ADD_NEW_USER';
 export const BEGIN_UPDATE = 'BEGIN_UPDATE';
+export const UPDATE_ERROR = 'UPDATE_ERROR';
 
-
-export const increment = () => {
+export const addNewUserSuccess = () => {
     return {
-        type: INCREMENT_COUNTER
+        type: ADD_NEW_USER
     }
 };
-
-export const decrement = () => {
-    return {
-        type: DECREMENT_COUNTER
-    }
-};
-
 const updateBegin = () => {
     return {
         type: BEGIN_UPDATE
     }
 };
-
-// To simulate network delay
-let sleep = (time) => new Promise((resolve, reject) => setTimeout(() => resolve(), time));
-
-export const incrementAsync = () => {
-    return async (dispatch) => {
-        dispatch(updateBegin());
-        await sleep(2000);
-        dispatch(increment());
+export const updateError = (error) => {
+    return {
+        type: UPDATE_ERROR,
+        payload: error,
     }
-};
-
-export const decrementAsync = () => {
-    return async (dispatch) => {
-        dispatch(updateBegin());
-        await sleep(2000);
-        dispatch(decrement());
-    }
-};
-
-
+}
+// export const addNewUser = (newUser) => {
+//     return async (dispatch) => {
+//         dispatch(updateBegin());
+//         await addUserToDB(newUser)
+//         .then(() => console.log("user added successfully"))
+//         .catch((e) => dispatch(updateError(e.message)));
+//     }
+// }
