@@ -1,7 +1,7 @@
 import { databaseRef } from "../firebaseConfig";
 
 export default function FeedbackCard({ id, feedback, userName }) {
-  const deleteHandler = async () => {
+    const deleteHandler = async () => {
     console.log("id is: ", id);
     console.log("userName is: ", userName);
       await databaseRef

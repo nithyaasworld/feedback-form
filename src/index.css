@@ -91,3 +91,8 @@
 .remove-textdeco{
     text-decoration: none;
 }
+.bottom-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

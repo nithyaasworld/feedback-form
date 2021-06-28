@@ -8,21 +8,28 @@ export default function Login() {
     let emailRef = useRef();
     let passwordRef = useRef();
     let [error, setError] = useState("");
+
     const formSubmitHandler = () => {
         setError("");
-        firebaseAuth
-          .signInWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
-          .then((userCredential) => {
-            // Signed in
-            var user = userCredential.user;
-            window.location = '/add-user-name';
-            console.log("set window location");
-          })
-          .catch((error) => {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            setError(`${errorCode}: ${errorMessage}`);
-          });
+        if (emailRef.current.value === "") {
+            setError(() => "Email cannot be blank");
+        } else if (passwordRef.current.value === "") {
+            setError(() => "Password cannot be blank");
+        } else {
+            firebaseAuth
+            .signInWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
+            .then((userCredential) => {
+              // Signed in
+              var user = userCredential.user;
+              window.location = '/add-user-name';
+              console.log("set window location");
+            })
+            .catch((error) => {
+              var errorCode = error.code;
+              var errorMessage = error.message;
+              setError(`${errorCode}: ${errorMessage}`);
+            });
+        }
     }
     return (
         <div className="login-wrapper">
@@ -33,7 +40,6 @@ export default function Login() {
                 <Button onClick={formSubmitHandler} variant="contained" color="primary">Login</Button>
                 <Link className="remove-textdeco" to="/"> <Button variant="contained" color="primary">New User? Signup here! </Button> </Link>
                 </div>
-               
                 {error.length > 0 && <div style={{color: 'red'}}>{error}</div>}
             </form>
         </div>

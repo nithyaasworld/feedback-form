@@ -11,16 +11,20 @@ export default function AddUserName() {
     let [userName, setUserName] = useState("");
     let [userNameList, setUserNameList] = useState([]);
     let [uid, setUid] = useState("");
+    let [error, setError] = useState("");
     
     
     const formSubmitHandler = async () => {
+        setError("");
         console.log("entered username is: ", userNameRef.current.value);
-        if (userNameList.includes(userNameRef.current.value)) {
-            console.error("user exists already");
+        if (userNameRef.current.value === "")  {
+            setError(() => "Please enter username");
+        } else if (userNameList.includes(userNameRef.current.value)) {
+            setError(() => "user exists already");
         } else {
             let newUserName = { uid: uid, username: userNameRef.current.value };
             await databaseRef.collection("feedback-app-usernames").add(newUserName)
-                .then((data) => {
+                .then(() => {
                     console.log("username added to db successfuly");
                     setUserName(userNameRef.current.value);
                 }).catch((e) => console.error(e.message));
@@ -74,12 +78,12 @@ export default function AddUserName() {
         }
     }, [userName])
 
-
     return (
         <div className="add-user-name-wrapper">
              <form className="add-user-name-container">
                 <TextField inputRef={userNameRef} id="outlined-basic" label="Username" variant="outlined" />
                 <Button onClick={formSubmitHandler} variant="contained" color="primary">Add Username</Button>
+                {error && error.length > 0 && <div style={{color: 'red'}} >{error}</div>}
             </form>
         </div>
     )
