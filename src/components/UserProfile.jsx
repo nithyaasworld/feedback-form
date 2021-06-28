@@ -15,7 +15,7 @@ export default function UserProfile() {
       .collection("feedbacks");
     doc.onSnapshot(
       (docSnapshot) => {
-        let feedbacks = docSnapshot.docs.map((doc) => doc.data().feedback);
+        let feedbacks = docSnapshot.docs.map((doc) => [doc.id, doc.data().feedback]);
         setFeedbackList(feedbacks);
       },
       (err) => {
@@ -39,7 +39,7 @@ export default function UserProfile() {
       </p>
       <div className="feedback-display-area">
         {feedbackList.length > 0 ? (
-                  feedbackList.map(feedback => <FeedbackCard key={feedback} feedback={feedback} userName={userName} />)
+                  feedbackList.map( ([id, feedbackData]) => <FeedbackCard id={id} key={id} feedback={feedbackData} userName={userName} />)
         ) : (
           <div>No feedback received yet</div>
         )}
